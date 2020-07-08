@@ -1,5 +1,6 @@
 ;
 'use stric'
+const { find, filter } = require("lodash");
 const cursos = [{
     _id: '1',
     titulo: 'Tendencias',
@@ -32,8 +33,13 @@ module.exports = {
         getCursos: () => {
             return cursos
         },
-        // getCuroById: (_id) => {
-        //     return cursos
-        // }
+        getCursosTitulo: (_, { titulo }) => filter(cursos, { titulo }),
+        getCusosId: (_, { _id }) => find(cursos, { _id }),
+    },
+    Mutation: {
+        createCurso: (_, { input }) => {
+            cursos.push(input);
+            return cursos;
+        },
     }
 }

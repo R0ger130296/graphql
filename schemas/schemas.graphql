@@ -1,24 +1,47 @@
+
+
+type Query{ 
+    hello:String
+    saludo:String
+
+    getCusosId(_id: ID!): [Curso]
+    getCursosTitulo(titulo: String): [Curso]
+    getCursos: [Curso]
+} 
+
 type Curso{
     _id:ID
     titulo:String
     profesor:String
     descripcion:String
     genero:String
-    Cursos:[Curso]
 }
 
-type Query{
-    hello:String
-    saludo:String
-    getCursos:[Curso],
-    # getCursoById:[getCursosById]
-} 
+type Mutation {
+  createCurso(input: CursoInput): [Curso]
+  updateCurso(
+    _id: ID!
+    titulo:String
+    profesor:String
+    descripcion:String
+    genero:String
+  ): Curso
+
+  deleteCurso(_id: ID!): Delete
+}
+input CursoInput {
+  _id: ID!
+  titulo:String
+    profesor:String
+    descripcion:String
+    genero:String
+}
+
+type Delete{
+  ok: Boolean!
+}
 
 
-# type getCursosById {   
-#   curso(_id: ID!)
-#    titulo:String
-#     profesor:String
-#     descripcion:String
-#     genero:String
-# }
+
+
+ 

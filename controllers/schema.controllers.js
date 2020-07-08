@@ -11,7 +11,7 @@ const { makeExecutableSchema } = require("graphql-tools"), { graphqlHTTP } = req
 
 let IniciarGraphql = graphqlHTTP({
     schema: schemas,
-    rootValue: cursoresolver,
+    // rootValue: cursoresolver,
     graphiql: true,
 });
 
