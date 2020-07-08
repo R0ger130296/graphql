@@ -32,5 +32,8 @@ module.exports = {
         getCursos: () => {
             return cursos
         },
+        // getCuroById: (_id) => {
+        //     return cursos
+        // }
     }
 }

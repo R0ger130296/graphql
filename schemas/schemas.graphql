@@ -4,10 +4,21 @@ type Curso{
     profesor:String
     descripcion:String
     genero:String
+    Cursos:[Curso]
 }
 
 type Query{
     hello:String
     saludo:String
-    getCursos:[Curso]
+    getCursos:[Curso],
+    # getCursoById:[getCursosById]
 } 
+
+
+# type getCursosById {   
+#   curso(_id: ID!)
+#    titulo:String
+#     profesor:String
+#     descripcion:String
+#     genero:String
+# }
