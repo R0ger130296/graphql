@@ -5,7 +5,7 @@ type Query{
     saludo:String
 
     getCusosId(_id: ID!): [Curso]
-    getCursosTitulo(titulo: String): [Curso]
+    getCursosTitulo(titulo: String!): [Curso]
     getCursos: [Curso]
 } 
 
@@ -19,15 +19,7 @@ type Curso{
 
 type Mutation {
   createCurso(input: CursoInput): [Curso]
-  updateCurso(
-    _id: ID!
-    titulo:String
-    profesor:String
-    descripcion:String
-    genero:String
-  ): Curso
-
-  deleteCurso(_id: ID!): Delete
+  deleteCurso(_id: ID!): [Curso]
 }
 input CursoInput {
   _id: ID!
@@ -35,13 +27,4 @@ input CursoInput {
     profesor:String
     descripcion:String
     genero:String
-}
-
-type Delete{
-  ok: Boolean!
-}
-
-
-
-
- 
+} 

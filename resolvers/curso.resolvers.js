@@ -1,6 +1,6 @@
 ;
 'use stric'
-const { find, filter } = require("lodash");
+const { find, filter, drop } = require("lodash");
 const cursos = [{
     _id: '1',
     titulo: 'Tendencias',
@@ -41,5 +41,9 @@ module.exports = {
             cursos.push(input);
             return cursos;
         },
+        deleteCurso: (_, { _id }) => {
+            cursos.drop(_id);
+            return console.log(`se elimino el ${_id}`)
+        }
     }
 }
